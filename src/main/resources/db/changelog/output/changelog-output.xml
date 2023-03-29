@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="Stefan (generated)" id="1663002881823-1">
+        <createTable tableName="administrator">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="NULL" name="name" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="password" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="role" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-2">
+        <createTable tableName="administrator_deprment">
+            <column name="admin_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="department_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-3">
+        <createTable tableName="bascket">
+            <column name="customer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-4">
+        <createTable tableName="bascket_products">
+            <column name="bascket_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-5">
+        <createTable tableName="customer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="NULL" name="password" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="phone" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="role" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-6">
+        <createTable tableName="department">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="NULL" name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-7">
+        <createTable tableName="department_products">
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="department_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-8">
+        <createTable tableName="favorite_list">
+            <column name="customer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-9">
+        <createTable tableName="favorite_lists_products">
+            <column name="favorite_list_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-10">
+        <createTable tableName="logs">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="NULL" name="action" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="admin_name" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="description" type="VARCHAR(255)"/>
+            <column defaultValueComputed="NULL" name="log_date" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-11">
+        <createTable tableName="order_products">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="NULL" name="category" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="description" type="VARCHAR(255)"/>
+            <column defaultValueComputed="NULL" name="price" type="DOUBLE"/>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="NULL" name="thumbnail" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="title" type="VARCHAR(255)"/>
+            <column defaultValueComputed="NULL" name="order_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-12">
+        <createTable tableName="orders">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="NULL" name="date_created" type="date"/>
+            <column defaultValue="NULL" name="status" type="VARCHAR(255)"/>
+            <column defaultValueComputed="NULL" name="customer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-13">
+        <createTable tableName="products">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="NULL" name="category" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="description" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="thumbnail" type="VARCHAR(255)"/>
+            <column defaultValue="NULL" name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-14">
+        <createTable tableName="stock">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="NULL" name="create_date" type="date"/>
+            <column name="enable" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" name="version" type="BIGINT"/>
+            <column defaultValueComputed="NULL" name="product_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-15">
+        <addPrimaryKey columnNames="customer_id" constraintName="PRIMARY" tableName="bascket"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-16">
+        <addPrimaryKey columnNames="bascket_id, product_id" constraintName="PRIMARY" tableName="bascket_products"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-17">
+        <addPrimaryKey columnNames="customer_id" constraintName="PRIMARY" tableName="favorite_list"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-18">
+        <addPrimaryKey columnNames="favorite_list_id, product_id" constraintName="PRIMARY" tableName="favorite_lists_products"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-19">
+        <addUniqueConstraint columnNames="name" constraintName="UK_crkjmjk1oj8gb6j6t5kt7gcxm" tableName="customer"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-20">
+        <createIndex indexName="FK5r6ud0pummslas69apw8lpcg2" tableName="department_products">
+            <column name="department_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-21">
+        <createIndex indexName="FK624gtjin3po807j3vix093tlf" tableName="orders">
+            <column name="customer_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-22">
+        <createIndex indexName="FK9b5d4jr24ls29q3yve1hpkrqp" tableName="administrator_deprment">
+            <column name="department_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-23">
+        <createIndex indexName="FKawxpt1ns1sr7al76nvjkv21of" tableName="order_products">
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-24">
+        <createIndex indexName="FKeuiihog7wq4cu7nvqu7jx57d2" tableName="stock">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-25">
+        <createIndex indexName="FKksgd2n3uq9mdggnjlm2iu16yt" tableName="favorite_lists_products">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-26">
+        <createIndex indexName="FKorfga7nvmrse1j7n2qpdkfb2r" tableName="department_products">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-27">
+        <createIndex indexName="FKp1yycsk8p3whyh9r1qbmyldn3" tableName="administrator_deprment">
+            <column name="admin_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-28">
+        <createIndex indexName="FKsfogwslbijs2arlupk9ok8q0m" tableName="bascket_products">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-29">
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="department_products" constraintName="FK5r6ud0pummslas69apw8lpcg2" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="department"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-30">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="orders" constraintName="FK624gtjin3po807j3vix093tlf" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="customer"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-31">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="bascket" constraintName="FK6owjnbylofx2ml3l370kk363g" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="customer"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-32">
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="administrator_deprment" constraintName="FK9b5d4jr24ls29q3yve1hpkrqp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="department"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-33">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="order_products" constraintName="FKawxpt1ns1sr7al76nvjkv21of" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="orders"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-34">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="stock" constraintName="FKeuiihog7wq4cu7nvqu7jx57d2" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="products"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-35">
+        <addForeignKeyConstraint baseColumnNames="favorite_list_id" baseTableName="favorite_lists_products" constraintName="FKg1ulkdn9573aqy1pnh1cpqfq" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="customer_id" referencedTableName="favorite_list"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-36">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="favorite_list" constraintName="FKh2dlf3kbo4uqteagxym8a8fk0" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="customer"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-37">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="favorite_lists_products" constraintName="FKksgd2n3uq9mdggnjlm2iu16yt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="products"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-38">
+        <addForeignKeyConstraint baseColumnNames="bascket_id" baseTableName="bascket_products" constraintName="FKloytmu07p8xsfwx5p5jot7lw" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="customer_id" referencedTableName="bascket"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-39">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="department_products" constraintName="FKorfga7nvmrse1j7n2qpdkfb2r" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="products"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-40">
+        <addForeignKeyConstraint baseColumnNames="admin_id" baseTableName="administrator_deprment" constraintName="FKp1yycsk8p3whyh9r1qbmyldn3" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="administrator"/>
+    </changeSet>
+    <changeSet author="Stefan (generated)" id="1663002881823-41">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="bascket_products" constraintName="FKsfogwslbijs2arlupk9ok8q0m" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="products"/>
+    </changeSet>
+</databaseChangeLog>

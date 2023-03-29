@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet  author="liquibase-docs"  id="insert-example">
+        <insert tableName="administrator">
+            <column  name="id"  value="1"/>
+            <column name="name" value="stockIt"/>
+            <column name="password" value="stockIt"/>
+            <column name="role" value="ROLE_STOCK_ADMINISTRATOR"/>
+         </insert>
+        <insert tableName="administrator">
+            <column  name="id"  value="2"/>
+            <column name="name" value="it"/>
+            <column name="password" value="it"/>
+            <column name="role" value="ROLE_PRODUCT_ADMINISTRATOR"/>
+        </insert>
+        <insert tableName="administrator">
+            <column  name="id"  value="3"/>
+            <column name="name" value="stockFashion"/>
+            <column name="password" value="stockFashion"/>
+            <column name="role" value="ROLE_STOCK_ADMINISTRATOR"/>
+        </insert>
+        <insert tableName="administrator">
+            <column  name="id"  value="4"/>
+            <column name="name" value="fashion"/>
+            <column name="password" value="fashion"/>
+            <column name="role" value="ROLE_PRODUCT_ADMINISTRATOR"/>
+        </insert>
+        <insert tableName="department">
+            <column  name="id"  value="1"/>
+            <column name="name" value="It"/>
+        </insert>
+        <insert tableName="department">
+            <column  name="id"  value="2"/>
+            <column name="name" value="Fashion"/>
+        </insert>
+        <insert tableName="administrator_deprment">
+            <column  name="admin_id"  value="1"/>
+            <column name="department_id" value="1"/>
+        </insert>
+        <insert tableName="administrator_deprment">
+            <column  name="admin_id"  value="2"/>
+            <column name="department_id" value="1"/>
+        </insert>
+        <insert tableName="administrator_deprment">
+            <column  name="admin_id"  value="3"/>
+            <column name="department_id" value="2"/>
+        </insert>
+        <insert tableName="administrator_deprment">
+            <column  name="admin_id"  value="4"/>
+            <column name="department_id" value="2"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
